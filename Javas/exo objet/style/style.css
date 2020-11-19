@@ -1,0 +1,14 @@
+h1{
+    text-align: center;
+    width: 100%;
+    border:solid 2px black ;
+}
+button{
+    text-align: center;
+}
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
