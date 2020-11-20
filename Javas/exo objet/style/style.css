@@ -22,3 +22,6 @@ li{
 table,th,td{
     border: ridge 2px black;
 }
+.ans:after{
+    content:" ans" ;
+}
