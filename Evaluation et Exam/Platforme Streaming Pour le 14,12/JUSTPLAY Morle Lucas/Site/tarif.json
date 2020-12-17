@@ -1,0 +1,5 @@
+[
+    { "nom": "Forfait Unique","ecran":"1 écran","prix":"7.90" },
+    { "nom": "Forfait Trio","ecran":"3 écrans","prix":"11.90" },
+    { "nom": "Forfait Familiale","ecran":"5 écrans","prix":"14.90" }
+]

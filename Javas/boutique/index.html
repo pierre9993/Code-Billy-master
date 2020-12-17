@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boutique</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="asset/fontawesome/css/all.css">
+    <script src="asset/fontawesome/js/all.js"></script>
+
+</head>
+
+<body>
+    <header>
+        <div id="logo"><i class="fas fa-shipping-fast"></i> Ma-super-boutique.com</div>
+        <ul id="menu"></ul>
+
+    </header>
+    <div id="confirmation"></div>
+
+    <div id="contact">
+        <h2><i class="fas fa-comment-alt"></i> Contact</h2>
+        <hr>
+        <form name="contactForm" onsubmit="return false;">
+            nom* : <input type="text" id="nom" name="nom" placeholder="entrer votre nom">
+            <br> prenom* : <input type="text" id="prenom" name="prenom" placeholder="entrer votre prenom">
+            <br> email* : <input type="email" id="email" name="email" placeholder="entrer votre email">
+            <br> tel* : <input type="tel" id="tel" name="tel" placeholder="entrer votre tel">
+            <br> Message* : <br><textarea id="message" name="message" placeholder="entrer votre message"></textarea><br>
+            <hr> <button onclick="annuler('#contact');">Annuler</button>
+            <button onclick="envoyer();">Envoyer</button>
+        </form>
+    </div>
+    <div id="login">
+        <h2><i class="fas fa-user-circle"></i> Connexion</h2>
+        <hr>
+        <form name="connexionForm" onsubmit="return false;">
+            Identifiant* : <input type="text" id="identifiant" name="identifiant" placeholder="entrer votre identifiant">
+            <br> Mot de passe* : <input type="password" id="mdp" name="mdp" placeholder="entrer votre mot de passe">
+            <hr> <br><button onclick="annuler('#login');">Annuler</button>
+            <button onclick="connexion();">Ce connecter</button>
+        </form>
+    </div>
+    <div id="service" style="display: none;"> </div>
+    <main>
+
+        <article id="produits"></article>
+
+        <section id="panier">
+            <h2><i class='fas fa-shopping-cart'></i> Panier</h2>
+            <hr>
+            <p id="panierProduit"></p>
+            <hr>
+            <p id="total"></p>
+            <button onclick="payer();">Payer</button>
+        </section>
+    </main>
+    <script src="js/boutique.js"></script>
+</body>
+
+</html>

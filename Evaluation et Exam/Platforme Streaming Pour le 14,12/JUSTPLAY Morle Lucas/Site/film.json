@@ -1,0 +1,12 @@
+[
+    { "titre": "Avengers: Endgame", "img":"img/avenger.jpg","durée":"3heures 2minutes","sortie":"24/04/2019","catégorie":"Film"},
+    { "titre": "Hellraiser", "img":"img/hellraiser.jpg","durée":"1heure 34minutes","sortie":"24/02/1998","catégorie":"Film"},
+    { "titre": "Don't Fuck With Cats", "img":"img/cat.png","durée":"1 saison","sortie":"18/12/2019","catégorie":"Documentaire"},
+    { "titre": "Deadpool", "img":"img/deadpool.jpg","durée":"1heure 49minutes","sortie":"10/02/2016","catégorie":"Film"},
+    { "titre": "Mister Robot", "img":"img/robot.jpg","durée":"4 saisons","sortie":"24/06/2015","catégorie":"Série"},
+    { "titre": "Chernobyl", "img":"img/chernobyl.jpg","durée":"1 saison","sortie":"06/05/2019","catégorie":"Série"},
+    { "titre": "Batman: The Dark Knight", "img":"img/batman.jpg","durée":"2heures 32minutes","sortie":"13/08/2008","catégorie":"Film"},
+    { "titre": "2001, L'Odyssée de l'espace", "img":"img/espace.jpg","durée":"2heures 44minutes","sortie":"27/09/1968","catégorie":"Film"},
+    { "titre": "Dernier train pour Busan", "img":"img/busan.jpg","durée":"2heures 1minute","sortie":"17/08/2016","catégorie":"Film"},
+    { "titre": "How to get away with murder", "img":"img/murder.jpg","durée":"6 saisons","sortie":"25/09/2014","catégorie":"Série"}
+]

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Annuaire / JQuery</title>
+    <script src="js/jquery-3.5.1.js"></script>
+</head>
+
+<body>
+    <div class="fenetre">Hello</div>
+    <input type="text"id="text" value="99">
+
+    <button class="fermer">Fermer</button>
+    <button id="ouvrir">Ouvrir</button>
+    <button id="value">Valeur</button>
+    <button id="para">Toggle Paragraphe</button>
+    <button id="append">+bouton</button>
+    <p id="paragraphe">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veritatis harum eveniet corrupti sapiente illo doloremque aliquid animi nisi tempore ipsam id exercitationem, itaque aperiam cum quidem quisquam dolore. Accusantium, quisquam. Laborum earum porro corrupti et ea iure, dolore ipsa odit laboriosam illo omnis magnam, dicta eos possimus dolores est hic libero voluptas. Amet laudantium animi, voluptate adipisci fugit iusto porro? Minima esse, eveniet, dignissimos iusto consequatur doloribus, labore voluptates optio omnis officiis ea quibusdam error doloremque explicabo. Maiores distinctio, consequatur, vel aut optio temporibus illo corporis quam quaerat, libero eos.</p>
+
+    <script>
+
+        //afficher paragraphe
+        var getP = $("#paragraphe").html();
+        $("#paragraphe").click(function(){
+            alert(getP)
+        })
+
+        //fermer fenetre
+        $(".fermer").click(function () {
+            $(".fenetre").hide()
+        })
+        //ouvrir fenetre + insère paragraphe
+        $("#ouvrir").click(function () {
+            $(".fenetre").show()
+            var montexte = $("#paragraphe").html() 
+            
+            $(".fenetre").html(montexte)
+        })
+        
+        $("#value").click(function () {
+            alert($("#text").val())
+        })
+
+        //toggle = show / hide en une fonction 
+        $('#para').click(function(){
+            $("#paragraphe").toggle()
+        })
+
+        // lorsque qu'une touche du clavier se relève
+        $('#text').keyup(function(){
+//dans l'html de l'id paragraphe   insère le contenue de l'id text 
+            $('#paragraphe').html($("#text").val())
+        })
+
+        $('#append').click(function(){
+        $('body').append('<h2>TRUC EN PLUS</h2>')
+        })
+    </script>
+</body>
+
+</html>

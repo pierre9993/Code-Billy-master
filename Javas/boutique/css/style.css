@@ -1,0 +1,127 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial;
+}
+#service{
+    display:block;
+}
+#menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    height: 40px;
+}
+
+#menu>li {
+    float: left;
+}
+
+#menu>li a {
+    display: block;
+    color: black;
+    text-decoration: none;
+    border-left: black solid 2px;
+    padding: 8px;
+}
+
+#menu>li a:hover {
+    display: block;
+    background-color: red;
+    color: white;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+    height: 50px;
+    padding: 5px;
+    margin-bottom: 30px;
+    box-shadow: 0 0 30px grey;
+}
+
+main {
+    display: flex;
+    align-items: stretch;
+}
+
+#produits {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 4px;
+}
+
+#produits>article {
+    flex: 50%;
+    max-width: 50%;
+    padding: 0 4px;
+    border: black solid 1px;
+    text-align: center;
+}
+
+#produits>article>img {
+    width: 100%;
+}
+
+#panier {
+    background-color: salmon;
+    width: 300px;
+    padding: 10px;
+    flex-grow: 2;
+}
+
+button {
+    border: black solid 1px;
+    background-color: black;
+    color: white;
+    padding: 10px;
+    font-size: 14px;
+}
+
+button:hover {
+    border: red solid 1px;
+    background-color: red;
+    color: white;
+}
+
+#confirmation,
+#contact,
+#login {
+    display: none;
+    position: absolute;
+    right: 30%;
+    background-color: yellow;
+    border: white solid 10px;
+    padding: 20px;
+    top: 100px;
+    box-shadow: 0 0 30px grey;
+}
+
+form {
+    text-align: right;
+}
+
+input,
+textarea {
+    padding: 5px;
+    margin: 2px;
+    border: black solid 2px;
+    width: 300px;
+}
+
+#logo {
+    font-size: 30px;
+    color: red;
+}
+
+@media screen and (max-width:600px) {
+    #produits>article {
+        flex: 100%;
+        max-width: 100%;
+    }
+}
