@@ -31,11 +31,17 @@ function modalConnexion() {
     changeModalFooter('<button type="button" class="btn btn-info" data-dismiss="modal">Se Connecter</button>')
 }
 
-//Récupère l'attribut "key" de l'entré
+/**
+ //Récupère l'attribut "key" de l'entré
+ * @param {String} elem 
+ */
 function getKey(elem) {
     return $(elem).attr('key')
 }
-//Fonction de modification du modal
+/**
+ //Fonction de modification du modal
+ * @param {string} titre 
+ */
 function changeModalTitre(titre) {
     $('.modal-title').html(titre);
 }
@@ -45,12 +51,19 @@ function changeModalBody(titre) {
 function changeModalFooter(titre) {
     $('.modal-footer').html(titre);
 }
-//Fonction d'ajout de slide au carousel
+/**
+ //Fonction d'ajout de slide au carousel
+ * @param {object} data 
+ * @param {number} film 
+ */
 function ajoutCarousel(data, film) {
     $('#carouselContent').append('<div class="carousel-item "><img src="' + data[film].img + '" alt="' + data[film].titre + '">' +
         '<div class="carousel-caption"><h2>' + data[film].titre + '</h2><p>' + data[film].catégorie + '</p></div> </div>')
 }
-//crée un nombre au hazard entre 0 et la longueur de l'entrée
+/**
+ //crée un nombre au hazard entre 0 et la longueur de l'entrée
+ * @param {Object} data 
+ */
 function nombreAuHazard(data) {
     const nbr = Math.floor(Math.random() * data.length);
     return nbr
@@ -76,15 +89,17 @@ $.get('film.json').done(function (datafilm) {
     }
 
     //Ajout des slides dans le carousel
-    // on insère le premier slide "active"
+    // on insère le premier slide avec une class"active"
     $('#carouselContent').append('<div class="carousel-item active"><img  src="' + datafilm[slide1].img + '" alt="' + datafilm[slide1].titre + '">' +
         '<div class="carousel-caption"><h2>' + datafilm[slide1].titre + '</h2><p>' + datafilm[slide1].catégorie + '</p></div> </div>');
     // on ajoute les deux slides restants
     ajoutCarousel(datafilm, slide2);
     ajoutCarousel(datafilm, slide3);
 
-    // Création du top films       
-    $.each(datafilm, function (key, film) {
+    // CREATIONS DU TOP FILMS    
+    const filmtrié = datafilm.sort(function (film1, film2) { return film2.vu - film1.vu })
+    // On trie les films pour les affichers dans l'ordre  décroissant des vu
+    $.each(filmtrié, function (key, film) {
         //On donne un classement à chaque films
         let classement = key++;
         //Créé une carte avec les informations de chaque films
@@ -101,9 +116,9 @@ $.get('film.json').done(function (datafilm) {
         //on récupère le numéro du film que l'on veut       
         const key = getKey(this);
         //on incorpore les informations du films correspondants dans les différentes parties du modal
-        changeModalTitre(datafilm[key].titre);
-        changeModalBody("<img src='" + datafilm[key].img + "' id='carteimg' class='border shadow' /><div id='infofilm'><div><p class='text-center font-weight-bold underline mb-0'>Durée:</p><p class='text-center '>" + datafilm[key].durée + "</p></div>" +
-            "<div><p class='text-center font-weight-bold underline mb-0' >Date de Sortie:</p><p class='text-center mb-0'>" + datafilm[key].sortie + "</p></div></div>");
+        changeModalTitre(filmtrié[key].titre);
+        changeModalBody("<img src='" + filmtrié[key].img + "' id='carteimg' class='border shadow' /><div id='infofilm'><div><p class='text-center font-weight-bold underline mb-0'>Durée:</p><p class='text-center '>" + filmtrié[key].durée + "</p></div>" +
+            "<div><p class='text-center font-weight-bold underline mb-0' >Date de Sortie:</p><p class='text-center mb-0'>" + filmtrié[key].sortie + "</p></div></div>");
         changeModalFooter('<button type="button" class="btn btn-info" onclick="modalConnexion()">Regarder</button>');
     })
 })
@@ -111,11 +126,11 @@ $.get('film.json').done(function (datafilm) {
 
 //AFFICHAGE DU FOOTER
 $.get('footer.json').done(function (datafooter) {
-    $('body').append('<footer class="bg-light border-top align-self-end" ><ul id="footer"></ul></footer>')
+    $('body').append('<footer class="bg-light border-top border-bottom shadow-sm align-self-end" ><ul id="footer"></ul></footer>')
     $.each(datafooter, function (key, info) {
         $('#footer').append('<li id="footer' + info.nom + '"><a href="#" id="footer' + key + '"  data-toggle="modal" data-target="#myModal">' + info.nom + '</a></ul>')
     })
-//Lorsqu'on clique sur le lien A propos du footer
+    //Lorsqu'on clique sur le lien A propos du footer
     $("#footer0").on('click', function () {
         //On affiche les informations de l'entreprise dans le modal
         changeModalTitre("À propos de JUST PLAY");
@@ -123,7 +138,7 @@ $.get('footer.json').done(function (datafooter) {
         changeModalFooter('<button type="button" class="btn btn-info" data-dismiss="modal">Fermer</button>')
     })
     $("#footer1").on('click', function () {
-    //Lorsqu'uon clique sur le lien A propos du footer
+        //Lorsqu'on clique sur le lien "mentions légales" du footer
         //On affiche les mentions légales dans le modal
         changeModalTitre("Mention Légales")
         changeModalBody("<p><span class='font-weight-bold'>Propriétaire </span>: MORLE Lucas | Individuel | morlelucas@mail.com | 07776900XX | 13 rue du ******</p><p><span class='font-weight-bold'>Hebergeur</span>: MORLE Lucas | 13 rue du ******</p>")
