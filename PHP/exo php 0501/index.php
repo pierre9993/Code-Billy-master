@@ -5,7 +5,7 @@ $donnees = [    ["nom" => "Zer", "prenom" => "Free"],
     ["nom" => "Downey Jr.", "prenom" => "Robert"],
     ["nom" => "Chu", "prenom" => "Pika"],
     ["nom" => "Daniels", "prenom" => "Jack"]];
-    
+
 $colonnes = ["nom", "prenom"];
 
 function minuscule($mot)
@@ -43,11 +43,8 @@ function afficheDansTerminal($chaine)
  * @param array $eleves Tableau des élèves, chaque élève étant un tableau associatif ["nom" => ... , "prenom" => ... ]
  * @param array $colonnes Tableau des noms des colonnes à afficher dans cet ordre
  */
-function afficheTableauEleves($eleves, $colonnes)
-{
-    afficheDansTerminal(genCol(majuscule($colonnes["nom"])));
-    afficheDansTerminal(genCol(minuscule($colonnes["prenom"])));
-
+function afficheTableauEleves($eleves, $colonnes){
+    afficheDansTerminal(genTableauEleves($eleves,$colonnes));
 }
 
 /**
@@ -58,13 +55,16 @@ function afficheTableauEleves($eleves, $colonnes)
  * @param array $colonnes Tableau des noms des colonnes à afficher dans cet ordre
  * @return string Renvoie le tableau sous forme de variable "string" php.
  */
-function genTableauEleves($eleves, $colonnes)
-{
-    // TODO 
+function genTableauEleves($eleves,$colonnes){
+    $tabhead=   genCol(""). 
+                genCol(majuscule($colonnes[0])).  
+                ajouteSautDeLigne(genCol(minuscule($colonnes[1])));
+    $tabody= "";
     foreach ($eleves as $eleve) {
-        // TODO 
+    $tabody.=   genCol("").
+                genCol(majuscule($eleve["nom"])).
+                ajouteSautDeLigne(genCol(minuscule($eleve["prenom"])));
     }
-    // TODO
+    return $tabhead.$tabody;
 }
 afficheTableauEleves($donnees, $colonnes);
-?>
