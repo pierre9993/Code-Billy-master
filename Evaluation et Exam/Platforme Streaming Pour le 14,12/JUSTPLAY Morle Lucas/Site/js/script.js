@@ -99,10 +99,11 @@ $.get('film.json').done(function (datafilm) {
     // CREATIONS DU TOP FILMS    
     const filmtrié = datafilm.sort(function (film1, film2) { return film2.vu - film1.vu })
     // On trie les films pour les affichers dans l'ordre  décroissant des vu
+    //et pour chaque film
     $.each(filmtrié, function (key, film) {
-        //On donne un classement à chaque films
+        //On donne un classement 
         let classement = key++;
-        //Créé une carte avec les informations de chaque films
+        //on Créé une carte avec les informations du film
         $("#topfilms").append('<div key="' + classement + '" class="card bg-white" id="cartefilm">' +
             '<div class="card-header box-shadow text-light cle"><h4>#' + key + '</h4></div>' +
             '<img class="card-img-top shadow" src="' + film.img + '" alt="' + film.titre + '">' +
