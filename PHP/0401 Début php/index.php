@@ -18,4 +18,22 @@
     // echo équivaut à un console.log dans notre terminal
     echo salutation($eleve["prenom"]." ".$eleve["nom"],$jour);
 }
+
+// CLASS *//***
+class Eleve {
+  $nom;
+  $prenom;
+};
+
+//OBJET
+
+$eleve= new Eleve();
+$eleve->nom;
+$eleve->prenom;
+
+$eleve->nom="Kim";
+
+$eleve2= new Eleve();
+$eleve2->nom="Dupont";
+$eleve2->prenom='Gabin';
 ?>

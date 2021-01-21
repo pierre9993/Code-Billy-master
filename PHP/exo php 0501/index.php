@@ -56,15 +56,23 @@ function afficheTableauEleves($eleves, $colonnes){
  * @return string Renvoie le tableau sous forme de variable "string" php.
  */
 function genTableauEleves($eleves,$colonnes){
-    $tabhead=   genCol(""). 
-                genCol(majuscule($colonnes[0])).  
-                ajouteSautDeLigne(genCol(minuscule($colonnes[1])));
     $tabody= "";
+    $tabhead=   genCol("").genCol(majuscule($colonnes[0]).genEspace(compteLettreMot($colonnes[0]))).
+                ajouteSautDeLigne(genCol(minuscule($colonnes[1]).genEspace(compteLettreMot($colonnes[1]))));;
+    $tabhead.=  genCol("").ajouteSautDeLigne(genCol(genLigne(compteLettreMot($tabhead)-3)));
     foreach ($eleves as $eleve) {
-    $tabody.=   genCol("").
-                genCol(majuscule($eleve["nom"])).
-                ajouteSautDeLigne(genCol(minuscule($eleve["prenom"])));
+    $tabody.=  genCol("").genCol(majuscule($eleve["nom"]).genEspace(compteLettreMot($eleve["nom"]))).
+    ajouteSautDeLigne(genCol(minuscule($eleve["prenom"]).genEspace(compteLettreMot($eleve["prenom"]))));;
     }
     return $tabhead.$tabody;
+}
+//compte le nbr de lettre de l'entré
+function compteLettreMot($mot){
+    return strlen($mot);
+}
+//remplis (ou non) l'espace restant de la colonne
+function genEspace($tailleDonnee){
+    $tailleEspace = 10-$tailleDonnee;
+    return str_repeat(" ",$tailleEspace );
 }
 afficheTableauEleves($donnees, $colonnes);

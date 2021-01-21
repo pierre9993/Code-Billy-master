@@ -1,0 +1,42 @@
+
+CREATE TABLE roles(
+   id_role INT,
+   role VARCHAR(50) NOT NULL,
+   PRIMARY KEY(id_role)
+);
+
+CREATE TABLE categories(
+   id_cat INT,
+   nom_cat VARCHAR(30),
+   PRIMARY KEY(id_cat)
+);
+
+CREATE TABLE utilisateur(
+   identifiant_user INT,
+   nom VARCHAR(50),
+   prenom VARCHAR(50),
+   email VARCHAR(100),
+   tel INT,
+   mdp VARCHAR(100),
+   PRIMARY KEY(identifiant_user)
+);
+
+CREATE TABLE article(
+   id_article INT,
+   titre VARCHAR(50) NOT NULL,
+   contenu VARCHAR(50),
+   _date DATE NOT NULL,
+   id_cat INT NOT NULL,
+   identifiant_user INT NOT NULL,
+   PRIMARY KEY(id_article),
+   FOREIGN KEY(id_cat) REFERENCES categories(id_cat),
+   FOREIGN KEY(identifiant_user) REFERENCES utilisateur(identifiant_user)
+);
+
+CREATE TABLE role_utilisateur(
+   id_role INT,
+   identifiant_user INT,
+   PRIMARY KEY(id_role, identifiant_user),
+   FOREIGN KEY(id_role) REFERENCES roles(id_role),
+   FOREIGN KEY(identifiant_user) REFERENCES utilisateur(identifiant_user)
+);

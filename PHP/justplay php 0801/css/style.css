@@ -1,0 +1,178 @@
+/* BALISE PERSO ET MODIF BOOTSTRAP*/
+.bg-secondary{
+   background-color:  #dfdfdfab!important;
+}
+.underline{
+    text-decoration: underline;
+}
+.cle{
+    position: absolute;
+}
+
+/** CSS DU MENU / HEADER */
+#navbar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    text-align: center;
+}
+#logo{
+    width: 100px;
+    height: 50px;
+}
+#menu{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+#menu>li>a{
+    margin: 0 1rem;
+    align-self: right;
+}
+#menu>li>a:hover,#footer>li>a:hover{
+    color: #6a7886;
+    cursor: pointer;
+    text-decoration: unset;
+}
+#menu>li>a:active,#footer>li>a:active{
+    color: #7c9ee9;
+}
+
+/** CSS DU CAROUSEL */
+#carouselContent>div>img{
+    width:100%;
+    height:500px ;
+}
+.carousel-caption>h2, .carousel-caption>p{
+    text-shadow:0 0 3px black ;
+}
+
+
+
+/** CSS DU TOP FILM / DES CARTES DE FILMS */
+#topfilms{
+    margin: 0 1rem;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+#topfilms>div>img{
+    height: 150px;
+}
+#topfilms>.card{
+    width: 19%;
+    margin: 10px 0 ;
+    border :1px solid rgb(0 0 0 / 16%);
+
+}
+#topfilms>div>.card-footer{
+    border: unset;
+    background-color: unset;
+}
+#topfilms>div:hover{
+    box-shadow:0px 0px 12px   rgb(128, 128, 128);
+}
+#arttop>h2{
+    text-decoration: underline;
+    margin-top: 1rem;
+}
+#infofilm{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+#carteimg{
+    margin: 0 7.5%;
+    width: 85%;
+    height: 150px;
+    margin-bottom: 1rem;
+}
+
+/*CSS FOOTER*/
+footer{
+    position: relative ;
+    bottom: 0;
+    width: 100%;
+}
+#footer{
+    margin: 0;
+    padding:10px 0 ;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    list-style: none;
+    justify-self: end;
+}
+#footer>li{
+    padding: 1em 0;
+}
+/* CSS FORFAIT*/
+#tarifcarte{
+    
+    margin: 2rem 10%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: space-evenly;
+}
+#tarifcarte>.card:hover,#tarifcarte>.card>.card-footer>button:hover{
+    box-shadow:0px 0px 5px   rgb(128, 128, 128);
+}
+
+#forfaitcarte{
+    text-align: center;
+    width: 27%;
+    margin: 1rem 0;
+}
+#forfaitcarte>.card-body{
+    padding-bottom: 0;
+    margin: 48px 0;
+} 
+
+
+
+@media screen and (max-width:1200px){
+    #topfilms>.card{
+    width: 24%;
+    }
+     
+    #tarifcarte{
+        flex-direction: column;
+    }
+    #forfaitcarte{
+        width: 60%;
+    }
+}
+@media screen and (max-width:1000px){
+    #topfilms>.card{
+        width: 31%;
+    }
+    #carouselContent>div>img{
+        height:300px ;
+    } 
+}
+@media screen and (max-width:768px){
+    #topfilms>.card{
+    width: 45%;
+    }
+    
+}
+@media screen and (max-width:470px){
+    #topfilms>.card{
+    width: 80%;
+    }
+    #carouselContent>div>img{
+        height:200px ;
+    }
+    
+#menu{
+    justify-content: space-evenly;
+}
+#navbar{
+    flex-direction: column;
+    justify-content: center;
+}}
