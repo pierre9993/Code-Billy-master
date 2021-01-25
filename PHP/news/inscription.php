@@ -27,4 +27,4 @@
                 <button type="submit" class="btn btn-primary mb-2 align-self-right">S'inscrire</button>
                 </div>
             </form>
-</div>
+            </div>

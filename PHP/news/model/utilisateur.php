@@ -8,6 +8,9 @@ class Utilisateur
     public $tel;
     public $mdp;
 
+
+
+    // REMPLIT LES INFOS DE L'UTILISATEUR QU'ON RECUPERE
     public function fetchUser()
     {
         $this->nom = $_POST["nom"];
@@ -17,14 +20,18 @@ class Utilisateur
         $this->mdp = $_POST["mdp"];
     }
 
+    //INSERE LES  DONNEES DE L'UTILISATEUR DANS UNE NOUVELLE LIGNE DE LA TABLE UTILISATEUR ET INFORME DE LA REUSSITE OU NON
     public function ajoutUser($bdd)
     {
-        $sql = $bdd->prepare("INSERT INTO utilisateur (nom,prenom,email,tel,mdp) VALUES (?,?,?,?,?)");
-
-        if ($sql->execute(["$this->nom", "$this->prenom", "$this->email", "$this->tel", "$this->mdp"])) {
-            echo "<div class='text-center alert alert-success'>Inscription réussie </div>";
-        } else {
-            echo "<div class='text-center alert alert-danger'>Inscription Interrompu </div>";
-        }
+        $sql = $bdd->prepare("INSERT INTO utilisateur (nom,prenom,email,tel,mdp) 
+         VALUES (:nom,:prenom,:email,:tel,:mdp)");
+        $sql->execute([
+            ":nom" => $this->nom, 
+            ":prenom " => $this->prenom,
+            ":email" => $this->email, 
+            ":tel" => $this->tel, 
+            ":mdp" => $this->mdp
+             ]); 
+        
     }
 }
