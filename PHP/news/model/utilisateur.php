@@ -11,13 +11,13 @@ class Utilisateur
 
 
     // REMPLIT LES INFOS DE L'UTILISATEUR QU'ON RECUPERE
-    public function fetchUser()
+    public function fromPost()
     {
-        $this->nom = $_POST["nom"];
-        $this->prenom = $_POST["prenom"];
-        $this->email = $_POST["email"];
-        $this->tel = $_POST["tel"];
-        $this->mdp = $_POST["mdp"];
+        $this->nom = @$_POST["nom"];
+        $this->prenom = @$_POST["prenom"];
+        $this->email = @$_POST["email"];
+        $this->tel = @$_POST["tel"];
+        $this->mdp = @$_POST["mdp"];
     }
 
     //INSERE LES  DONNEES DE L'UTILISATEUR DANS UNE NOUVELLE LIGNE DE LA TABLE UTILISATEUR ET INFORME DE LA REUSSITE OU NON
@@ -27,7 +27,7 @@ class Utilisateur
          VALUES (:nom,:prenom,:email,:tel,:mdp)");
         $sql->execute([
             ":nom" => $this->nom, 
-            ":prenom " => $this->prenom,
+            ":prenom" => $this->prenom,
             ":email" => $this->email, 
             ":tel" => $this->tel, 
             ":mdp" => $this->mdp

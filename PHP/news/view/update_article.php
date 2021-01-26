@@ -1,5 +1,5 @@
 <div class="container-fluid border mt-3 mb-3">
-    <h2 class=" mt-2">Update article</h2>
+    <h2 class=" mt-2">Modifier article</h2>
 </div>
 
 <?php
@@ -16,7 +16,7 @@ $date = new \DateTime();
 $article->_date = $date->format('Y-m-d');
 
 
-$article->insert($bdd);
+$article->update($bdd);
 
 echo "L'article ". $article->id. " a été mise à jour";
 }
@@ -24,7 +24,7 @@ echo "L'article ". $article->id. " a été mise à jour";
 
 
 <div class="container border mt-3 mb-3">
-    <form method="POST" action="index.php?page=create_art">
+    <form method="POST" action="index.php?page=update_art">
         <div class="form-group">
             <label for="titre">Titre:</label>
             <input type="text" name="titre" class="form-control" placeholder="<?php echo $article->titre ?>" value="<?php echo $article->titre ?>" id="titre">

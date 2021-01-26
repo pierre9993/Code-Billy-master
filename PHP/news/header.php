@@ -15,7 +15,7 @@
 <body>
     
             <?php
-            $menu = new Menu($bdd,"PAPo");
+            $menu = new Menu($bdd,"News");
             $menu->afficheMenu();
 
             ?>

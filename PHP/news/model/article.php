@@ -58,11 +58,18 @@ class Article
             "WHERE id_article=:id");
         $sql->execute([":titre" => $this->titre, ":img" => $this->img, ":contenu" => $this->contenu, ":id" => $this->id]);
     }
+    //SUPPRIME L'ARTICLE SELECTIONNER
+    public function delete($bdd)
+    {
+        $sql = $bdd->prepare("DELETE FROM article " .
+            "WHERE id_article=:id");
+        $sql->execute([":id" => $this->id]);
+    }
 
     //AFFICHE TOUS LES TITRE DES ARTICLES A LA SUITE
     public function topArticle($bdd)
     {
-        echo '<div class="container border mt-4">';
+        echo '<div class="container border mt-4 mb-4">';
         $art = $bdd->query('SELECT * FROM article');
         while ($colonne = $art->fetch()) {
             echo '<h2><a href="?page=art&id=' . $colonne["id_cat"] . '&id_art=' . $colonne["id_article"] . '">' . $colonne["titre"] . '</a></h2>';
@@ -76,7 +83,7 @@ class Article
         $idcat = @$_GET["id"];
         $cat = $bdd->query('SELECT * FROM article WHERE  id_cat="' . $idcat . '"');
         while ($ligne = $cat->fetch()) {
-            echo '<div class="container border mt-4"><h2 class="mt-4" ><a href="?page=art&id=' . $ligne["id_cat"] . '&id_art=' . $ligne["id_article"] . '">' . $ligne["titre"] . '</a></h2>' .
+            echo '<div class="container border mt-4 mb-4"><h2 class="mt-4" ><a href="?page=art&id=' . $ligne["id_cat"] . '&id_art=' . $ligne["id_article"] . '">' . $ligne["titre"] . '</a></h2>' .
                 '<p>' . utf8_encode($ligne["contenu"]) . '</p></div>';
         };
     }

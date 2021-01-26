@@ -1,7 +1,15 @@
+
 <div class="container border mt-3 mb-3">
     <h2 class=" mt-2">Inscription</h2>
-    <hr>
-            <form method="POST" action="action.php">
+    <hr/>
+
+    <?php 
+    if($user->nom!==null){
+        echo ' <div class="text-success ">Inscription réussie</div> <hr/>';
+    }
+    ?>
+   
+            <form method="POST" action="index.php?page=inscription">
                 <div class="form-group">
                     <label for="nom">Nom:</label>
                     <input type="text" name="nom" class="form-control" placeholder="Entrer nom" id="nom">
