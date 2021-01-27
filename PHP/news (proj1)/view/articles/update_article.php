@@ -4,22 +4,10 @@
 
 <?php
 
-$article = new Article($bdd);
-if(array_key_exists("submit",$_POST))
-{
-$article->titre = @$_POST["titre"];
-$article->contenu = @$_POST["contenu"];
-$article->img = @$_POST["img"];
-$article->id_cat = @$_POST["id_cat"];
-$article->identifiant_user = 2; //TOdo plus tard et prendre l'utilisateur connecté
-$date = new \DateTime();
-$article->_date = $date->format('Y-m-d');
-
-
-$article->update($bdd);
-
+if($article->id !== null){
 echo "L'article ". $article->id. " a été mise à jour";
 }
+
 ?>
 
 
@@ -38,8 +26,8 @@ echo "L'article ". $article->id. " a été mise à jour";
             <input type="url" name="img" class="form-control" placeholder="<?php echo $article->img ?>" value="<?php echo $article->img ?>" id="img">
         </div>
         <div class="form-group">
-            <label for="id_cat">Number:</label>
-            <input type="text" name="id_cat" class="form-control" placeholder="<?php echo $article->id_cat ?>" value="<?php echo $article->id_cat ?>" id="id_cat">
+            <label for="id">Id Article:</label>
+            <input type="text" name="id" class="form-control" placeholder="<?php echo $article->id ?>" value="<?php echo $article->id ?>" id="id">
         </div>
         <button type="submit" class="btn btn-primary mb-2 align-self-right">Valider</button>
 </div>

@@ -4,12 +4,9 @@
 
 <?php
 
-$article = new Article($bdd);
-$article->id = @$_POST["id"];
+if ($article->id !==null){
+echo "L'article ". $article->id . " a bien été supprimé";
 
-if ($article->id !== null){
-echo "L'article ". $article->id. " a bien été supprimé";
-$article->delete($bdd);
 }
 
 ?>

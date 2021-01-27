@@ -12,7 +12,7 @@ $cat->id_cat = @$_POST["id_cat"];
 $isUpdate===true;
 };
 
-include('view/update_cat.php');
+include('view/categorie/update_cat.php');
 }
 
 function delete($bdd){
@@ -24,7 +24,7 @@ if ( $cat->nom_cat !== null) {
     
     $cat->delete($bdd);
 };
-include('view/delete_cat.php');
+include('view/categorie/delete_cat.php');
 }
 
 
@@ -36,5 +36,5 @@ if ($cat->nom_cat !== null) {
     $cat->insert($bdd);
     
 };
-include('view/create_cat.php');
+include('view/categorie/create_cat.php');
 }

@@ -38,24 +38,13 @@ class Article
             $this->identifiant_user = $colonne["identifiant_user"];
         };
     }
-    //AFFICHE L'ARTICLE SELECTIONNE
-    public function affiche()
-    {
-        echo '<div class="container border mt-4"><h2 class="mt-4"><a onclick="afficheArticle($bdd)" href="?page=art&id=' . $this->id_cat . '&id_art=' . $this->id . '">' . $this->titre . '</a></h2>' .
-            '<img src="' . utf8_encode($this->img) . '"/>' .
-            '<div> Date : ' . utf8_encode($this->_date) . '  | ' .
-            ' Auteur : ' . utf8_encode($this->nom) . utf8_encode($this->prenom) . ' ' .
-            '  |   Catégorie : ' . utf8_encode($this->nom_cat) .
-            '   </div><br>';
-
-        echo '<p>' . utf8_encode($this->contenu) . '</p></div>';
-    }
+    
     //MODIFIE LES CATEGORIES DE L'ARTICLE DIRECTEMENT DANS LA BDDD
     public function update($bdd)
     {
-        $sql = $bdd->prepare("UPDATE article " .
-            "SET titre=:titre,img=:img,contenu=:contenu " .
-            "WHERE id_article=:id");
+        $sql = $bdd->prepare("UPDATE article 
+            SET titre=:titre,img=:img,contenu=:contenu 
+            WHERE id_article=:id");
         $sql->execute([":titre" => $this->titre, ":img" => $this->img, ":contenu" => $this->contenu, ":id" => $this->id]);
     }
     //SUPPRIME L'ARTICLE SELECTIONNER
@@ -68,24 +57,16 @@ class Article
 
     //AFFICHE TOUS LES TITRE DES ARTICLES A LA SUITE
     public function topArticle($bdd)
-    {
-        echo '<div class="container border mt-4 mb-4">';
-        $art = $bdd->query('SELECT * FROM article');
-        while ($colonne = $art->fetch()) {
-            echo '<h2><a href="?page=art&id=' . $colonne["id_cat"] . '&id_art=' . $colonne["id_article"] . '">' . $colonne["titre"] . '</a></h2>';
-        };
-        echo '</div>';
+    {    
+        return $bdd->query('SELECT * FROM article ');
     }
 
     //AFFICHE LES ARTICLE DE LA CATEGORIES CORRESPONDANT A L'ID QU'ON RECUPERE AVEC GET
     public function catselect($bdd)
     {
         $idcat = @$_GET["id"];
-        $cat = $bdd->query('SELECT * FROM article WHERE  id_cat="' . $idcat . '"');
-        while ($ligne = $cat->fetch()) {
-            echo '<div class="container border mt-4 mb-4"><h2 class="mt-4" ><a href="?page=art&id=' . $ligne["id_cat"] . '&id_art=' . $ligne["id_article"] . '">' . $ligne["titre"] . '</a></h2>' .
-                '<p>' . utf8_encode($ligne["contenu"]) . '</p></div>';
-        };
+        return $cat = $bdd->query('SELECT * FROM article WHERE  id_cat="' . $idcat . '"');
+        
     }
     public function insert($bdd)
     {

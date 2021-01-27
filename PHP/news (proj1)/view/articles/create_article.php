@@ -4,15 +4,8 @@
 
 <?php
 
-$article = new Article($bdd);
-$article->titre = @$_POST["titre"];
-$article->contenu = @$_POST["contenu"];
-$article->img = @$_POST["img"];
-$article->id_cat = @$_POST["id_cat"];
-$article->identifiant_user = 2; //TOdo plus tard et prendre l'utilisateur connecté
-$date = new \DateTime();
-$article->_date = $date->format('Y-m-d');
-if($article->insert($bdd)){
+
+if($article->titre !== null){
 
 echo "L'article ". $article->id. " a été créé ";
 };
