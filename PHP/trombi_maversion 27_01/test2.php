@@ -18,7 +18,7 @@ class Test2 extends Test
     }
 }
 
-$test21 = new Test2;
+$test21 = new Test2();
 $test21->getHeritageProtected();//Ok
 //$test21->getHeritagePrivate();//error    
 $test21->getheritageMethod();

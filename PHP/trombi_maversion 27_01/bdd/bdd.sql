@@ -10,17 +10,8 @@ CREATE TABLE categories(
    PRIMARY KEY(id_cat)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-CREATE TABLE contenus(
-   id_contenu INT AUTO_INCREMENT,
-   nom_contenus VARCHAR(255),
-   description_contenus TEXT,
-   id_cat INT NOT NULL,
-   PRIMARY KEY(id_contenu),
-   FOREIGN KEY(id_cat) REFERENCES categories(id_cat)
-)ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-CREATE TABLE eleve(
-   id_eleve INT AUTO_INCREMENT,
+CREATE TABLE users(
+   id_user INT AUTO_INCREMENT,
    nom VARCHAR(50),
    prenom VARCHAR(50),
    info VARCHAR(255),
@@ -28,9 +19,19 @@ CREATE TABLE eleve(
    email VARCHAR(50),
    mdp VARCHAR(50),
    cv VARCHAR(50),
-   id_contenu INT NOT NULL,
    id_role INT NOT NULL,
-   PRIMARY KEY(id_eleve),
-   FOREIGN KEY(id_contenu) REFERENCES contenus(id_contenu),
+   PRIMARY KEY(id_user),
    FOREIGN KEY(id_role) REFERENCES role(id_role)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE contenus(
+   id_contenu INT AUTO_INCREMENT,
+   nom_contenus VARCHAR(255),
+   description_contenus TEXT,
+   id_cat INT NOT NULL,
+   id_user INT NOT NULL,
+   PRIMARY KEY(id_contenu),
+   FOREIGN KEY(id_cat) REFERENCES categories(id_cat),
+   FOREIGN KEY(id_user) REFERENCES users(id_user)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+

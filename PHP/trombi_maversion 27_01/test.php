@@ -23,9 +23,15 @@ class Test
     private $private = "private";
     public $public = "public";
     protected $protected = "protected";
+    public $bdd;
     private $valeur = "Hello";
 
     //METHODES
+    public function __construct()
+    {
+        $this->bdd=Bdd::connexion();
+    }
+
     public function getPrivate()
     {
         echo $this->valeur; //marche
@@ -52,7 +58,7 @@ class Test
 }
 
 
-$test1 = new Test;
+$test1 = new Test();
 $test1->setPrivate("Hola"); //set (PRIVATE donc on doit le faire depuis une méthode)
 $test1->getPrivate(); //get (PRIVATE donc on doit le faire depuis une méthode)
 /*
@@ -63,7 +69,8 @@ $test1->methodPublic();//marche
 echo "<br>";
 
 
-$test2 = new Test;
+$test2 = new Test();
 $test2->getPrivate(); //get
 echo $test2->public = " coucou "; //set (Public don on peut le faire hors méthode)
 echo $test2->public;//get (Public don on peut le faire hors méthode)
+
