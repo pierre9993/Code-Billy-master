@@ -9,9 +9,48 @@
 .fond:hover{
     box-shadow: 0px 0px 7px rgba(255, 255, 255, 0.555);
 }
+.fond-dark:hover{
+    box-shadow: 0px 1px 7px rgba(255, 255, 236, 0.918);
+}
 .bg-nav{
     background-color: rgb(36, 41, 48);
 }
 .bg-body{
-    background-color: rgb(107, 107, 106);
+    background-color: rgb(96, 96, 97);
+}
+
+.img-liste{
+    width: 100px;
+    height: 100px;
+}
+
+.audio{
+ box-sizing: border-box;
+}
+.sonliste:hover{
+animation-name: listehover;
+  animation-duration: 0.5s;
+  animation-timing-function: ease;
+  height: 140px;
+}
+.sonliste{
+    border-bottom: 2px solid rgb(187, 187, 187);
+    margin-bottom: 10px;
+    height: 116px;
+    animation-name: listenormal;
+  animation-duration: 0.5s;
+  animation-timing-function: ease;
+}
+@keyframes listehover{
+    from {height: 116px;}
+    to {height: 140px;}
+}
+@keyframes listenormal{
+    from {height: 140px;}
+    to {height: 116px;}
+}
+
+.imgSonSelect{
+    width: 150px;
+    height: 150px;
 }

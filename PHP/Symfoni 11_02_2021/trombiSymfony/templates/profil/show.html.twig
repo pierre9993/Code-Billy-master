@@ -1,0 +1,20 @@
+{%  extends "base.html.twig" %}
+
+{% block body %}
+
+	<div>
+		<div id="profilsHead" class='d-flex flex-row align-items-center justify-content-between container border mt-3 bg-dark text-light col-11'>
+			<h1>Liste des profils</h1>
+			<a href="?page=ajoutProfil" class="button bg-light text-dark pr-2 pl-2">
+				Ajout profil</a>
+		</div>
+		<div class="d-flex flex-row flex-wrap">
+
+			<div class='container d-flex flex-column justify-content-between align-items-center bg-light '>
+				<img class='col-2 m-3 border p-0' src='{{ profil.image }}'/>
+				<a class='text-center col-3 border bg-dark text-light shadow-sm' href='{{ path('profil_show', {'id': profil.id}) }}'>{{ profil.nom }}{{ profil.prenom }}</a><br/>
+				<p>gfgdgosbgdgosbfobfoisfiufgodsufyouyffgdgosbfobfoisfiufgodsufyouyffgdgosbfobfoisfiufgodsufyouyfodsufyouyfgsy</p>
+			</div>
+		</div>
+	</div>
+{% endblock %}

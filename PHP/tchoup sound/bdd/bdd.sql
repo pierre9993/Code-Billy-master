@@ -15,9 +15,7 @@ CREATE TABLE son(
    nom_son VARCHAR(50),
    img_son VARCHAR(255),
    lien_son VARCHAR(250),
-   id_cat INT NOT NULL,
-   PRIMARY KEY(id_son),
-   FOREIGN KEY(id_cat) REFERENCES categorie(id_cat)
+   PRIMARY KEY(id_son)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE artistes_son(
